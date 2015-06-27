@@ -159,6 +159,10 @@ download page with CSS.
 MULTIPLE PRODUCTS
 =================
 Usage:
+```
 ipn.php?buy=0
+```
+```
 ipn.php?buy=1
+```
 etc..
