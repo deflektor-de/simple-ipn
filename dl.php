@@ -33,8 +33,16 @@ $file_id = (int) $_GET['file'];
 if (!isset($product_files[$file_id]))
 { die('Invalid File Information. Contact Administrator.'); }
 
-$file = $product_files[$file_id];
+//$file = $product_files[$file_id];
+foreach ($product_files as $prodotto) {
+    if ($customer_info['product_name'] === $prodotto['name']) {
+        $file = $prodotto;
+    }
+}
 
+if (!is_array($file)) {
+    $file = array();
+}
 if (download_is_expired($customer_info['expire_date']))
 { die('Download has expired.'); }
     

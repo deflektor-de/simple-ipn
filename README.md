@@ -158,15 +158,7 @@ download page with CSS.
 
 MULTIPLE PRODUCTS
 =================
-
-While Simple IPN can work with multiple files in your
-product package, Simple IPN is not designed to cater for
-multiple products.
-
-To use Simple IPN on your other products, copy the files of
-Simple IPN into a new folder and define your settings in the
-settings.php file.
-
-Just like how you previously link to ipn.php?buy, do the
-same for this new product. Make sure you link to the right
-file from the right folder.
+Usage:
+ipn.php?buy=0
+ipn.php?buy=1
+etc..

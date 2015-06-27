@@ -69,14 +69,22 @@ else {
 	
 		preg_match_all("/\{(DOWNLOADS[12])\|?(.*)\}/", $page_html, $dlmatches);
 		
+		foreach ($product_files as $key) {
+			if ($key['name'] == $customer_info['product_name']) {
+				$itemto_dwnl[] = $key;
+			}
+ 			# code...
+		}
 		if (is_array($dlmatches))
 		{
+			//var_dump($product_files[1]['name']);
+			//var_dump($product_files[1]['name']);
 			foreach($dlmatches[1] as $dlkey => $dlvalue)
 			{
 				if ($dlvalue == 'DOWNLOADS1') $download_style = 1;
 				if ($dlvalue == 'DOWNLOADS2') $download_style = 2;
-	
-				$dl_list = display_products($product_files, $customer_info, $download_style, $dlmatches[2][$dlkey]);
+				//if ($_POST['item_name'] === $dlkey['name'])
+				$dl_list = display_products($itemto_dwnl, $customer_info, $download_style, $dlmatches[2][$dlkey]);
 				$page_html = str_replace($dlmatches[0][$dlkey], $dl_list, $page_html);
 			}
 		}

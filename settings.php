@@ -1,43 +1,54 @@
 <?php
 
-$debug = 1;  // to enable debug mode. debug mode will dump IPN data and transaction
+$debug = 0;  // to enable debug mode. debug mode will dump IPN data and transaction
              // results on the thank you page. It will also create a submit button
              // instead of auto-redirect for Paypal Buy Button.
-             
-$paypal_sandbox = 1;  // 1 for test more, 0 for production mode
-$expire_in_hours = 72;  // how many hours before download expires, in hours
-$paypal_email_address = 'paypal@yourdomain.com';  // your paypal email address
-$support_email_address = 'support@yourdomain.com';   // your email address for support
-$support_email_name = 'You - YourDomain.com';   // name to appear in the From when email is sent
 
-$get_shipping_address = 1;   // whether to get or not shipping address
+$paypal_sandbox = 0;  // 1 for test more, 0 for production mode
+$expire_in_hours = 72;  // how many hours before download expires, in hours
+$paypal_email_address = 'vendor@vendor.com';  // your paypal email address
+$support_email_address = 'vendor@vendor.com';   // your email address for support
+$support_email_name = 'TEST';   // name to appear in the From when email is sent
+
+$get_shipping_address = 0;   // whether to get or not shipping address
                              // 1 - Yes, MUST enter shipping address
                              // 0 - No, shipping address field removed
                              // 2 - Optional, shipping address is optional
 
-$product_name = 'Sample Product';   // Product name, will appear in Paypal
-$product_code = 'SPL101';   // Code, will appear in Paypal
-$product_price = '19.95';   // product price, will appear in Paypal
-$price_currency = 'USD';    // currency, Paypal only supports
+//$product_name = 'Sample Product';   // Product name, will appear in Paypal
+$product_code = ''; 
+$product_price = '';   
+$price_currency = 'EUR';    // currency, Paypal only supports
                             // AUD CAD EUR GBP JPY USD NZD CHF HKD
                             // SGD SEK DKK PLN NOK HUF CZK ILS MXN
- 
+
 $product_files = array(); // do not change
 
-$product_files[] = array( // DEFINE YOUR PRODUCT
-		'name'     => 'Sample Audio MP3', // normal name of the file
-		'filename' => 'audio-lesson.mp3', // filename the customer will gets
-		'source'   => 'sample.mp3'        // actual location of the file
-                                                  // does not need to be the same filename
-                                                  // location can elsewhere too like:
-                                                  // 'source'   => '../../store/sample.mp3'
-	);
+/////////////////////////////////////////
+// MODIFICARE I PRODOTTI DA QUI IN POI //
+/////////////////////////////////////////
 
-$product_files[] = array( // DEFINE ANOTHER PRODUCT
-		'name'     => 'Sample PDF eBook',
-		'filename' => 'workbook.pdf',
-		'source'   => 'sample.pdf'
-	);
+$product_files[] = array( // DEFINE YOUR PRODUCT [0]
+  'name'      => 'Sample Audio MP3', 
+  'code'      => 'SPL101', 
+  'price'     => '19.95', 
+  'curr'      => 'EUR', 
+  'filename'  => 'audio-lesson.mp3', 
+  'source'    => 'sample.mp3'       
+);
+
+$product_files[] = array( // DEFINE ANOTHER PRODUCT [1]
+  'name'      => 'Sample2 PDF eBook',
+  'code'      => 'SPL222', 
+  'price'     => '22.00',
+  'curr'      => 'EUR', //
+  'filename'  => 'workbook.pdf',
+  'source'    => 'sample.pdf'
+);
+
+////////////////////////////
+// FINE MODIFICA PRODOTTI //
+////////////////////////////
 
 $email_subject = 'Your Purchase: {PRODUCT NAME} ({PRODUCT CODE})'; // subject line for your email
 
