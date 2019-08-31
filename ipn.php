@@ -63,7 +63,7 @@ if (isset($_REQUEST['buy']))
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <?php if ($debug != 1) { ?><h3 align="center">Attendi mentre ti trasferisco a Paypal</h3><?php } ?>
-<body>
+</body>
 </html>
 <?php
     exit();
